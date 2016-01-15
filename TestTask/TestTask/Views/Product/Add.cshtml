@@ -1,0 +1,41 @@
+﻿@model TestTask.Models.Product
+
+@{
+    ViewBag.Title = "Add";
+}
+
+@using (Html.BeginForm("Add","Product"))
+{
+    <h4><strong>Add new product</strong></h4>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-4">
+            @Html.LabelFor(m => m.Name)
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.Name, new { Value = ViewBag.tempName})
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-4">
+            @Html.LabelFor(m => m.Quantity)
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.Quantity, new { Value = ViewBag.tempQuantity })
+            @Html.ValidationMessageFor(m => m.Quantity)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-4">
+            @Html.LabelFor(m => m.Barcode)
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.Barcode, new { Value = ViewBag.tempBarcode })
+            @Html.ValidationMessageFor(m => m.Barcode)
+        </div>
+    </div>
+
+    <input type="submit" value="Save"/>
+    @*<span class="glyphicon glyphicon-ok-circle"><input type="submit" style="display:none"></span>*@
+}
+

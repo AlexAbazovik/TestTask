@@ -1,0 +1,22 @@
+﻿@model List<TestTask.Models.Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="list">
+    @foreach (var p in Model)
+    {
+        <div class="product">
+            <strong>Product name: @p.Name</strong> <br />
+            Quantity: @p.Quantity <br />
+            Barcode:  @p.Barcode
+            <div class="additionalBlock">
+                <a href="@Url.Action("Edit", new { id = p.ID})"><span class="glyphicon glyphicon-pencil"></span></a>
+                @Ajax.ActionLink("Delete", "Delete", new { id = p.ID }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "list" })
+            </div>
+        </div>
+    }
+    <div class="addNewProduct">
+        <a href="@Url.Action("Add")"><span class="glyphicon glyphicon-plus"></span></a>
+    </div>
+</div>
